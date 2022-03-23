@@ -1,0 +1,58 @@
+{
+    "entity_mention": {
+        "input_constraints": [
+
+        ],
+        "ontology": {
+
+        }
+    },
+    "entity_mention_relation": {
+        "input_constraints": [
+
+        ],
+        "ontology": {
+
+        }
+    },
+    "event_mention": {
+        "input_constraints": [],
+        "ontology": {
+
+        }
+    },
+    "event_mention_argument": {
+        "input_constraints": [
+
+        ],
+        "ontology": {
+            "O": {
+                "templates": [
+                    "{X} is not relevant to {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "where": {
+                "input_constraints": [
+
+                ],
+                "templates": [
+                    "{X} happened at {Y} and {Y} is a location.",
+                    "{X} happened in {Y} and {Y} is a location."
+                ],
+                "use_global_input_constraints": false
+            },
+            "who": {
+                "input_constraints": [
+                ],
+                "templates": [
+                  "{X} has an effect to {Y}."
+                ],
+              "use_global_input_constraints": false
+            }
+        }
+    },
+    "stages_to_run": [
+        "event_mention_argument"
+    ]
+}

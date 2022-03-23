@@ -1,0 +1,553 @@
+/*
+ * Copyright 2013 by Raytheon BBN Technologies Corp.
+ * All Rights Reserved.
+ */
+
+div.clear {
+    clear: both;
+}
+
+/**********************************************************************
+ * Document navigation
+ **********************************************************************/
+
+#doc-nav {
+    white-space: nowrap;
+    /*border-top: 1px solid black;*/
+}
+
+#doc-nav span.sentno {
+    display: inline-block;
+    min-width: 2em;
+    text-align: right;
+    font-weight: bold;
+}
+
+#doc-nav span.count {
+    color: #888;
+}
+
+#doc-nav li.selected a {
+    color: #800;
+    font-weight: bold;
+}
+
+body.navigation h1 {
+    font-size: 110%;
+    margin: 0; padding: 0;
+}
+
+/**********************************************************************
+ * Document text
+ **********************************************************************/
+
+h1 {
+    margin: 0 0 0.25em 0;
+}
+
+p.doc-graphs {
+    font-weight: bold;
+    margin: 0; padding: 0;
+}
+
+div.text-options {
+    margin-bottom: 0.5em;
+}
+
+body.doc-text {
+    background: #ccc;
+}
+
+div.doc-body {
+    line-height: 135%;
+    /*
+    background: #ccc;
+    padding: 2px 0.5em;
+    border: 1px solid black;
+    */
+}
+
+span.unprocessed {
+    color: #a0a0a0;
+    font-size: 80%;
+}
+
+span.sentence {
+    background: white;
+}
+
+span.selected-sentence {
+    border: 2px solid #800; 
+    border-bottom: 2px solid #800; 
+}
+span.sentence:hover {
+    border-bottom: 2px solid #c44; 
+}
+
+div.mark-prons span.pron {
+    background: #c0ffc0; }
+
+div.mark-names span.name {
+    background: #c0ffc0; }
+
+div.mark-descs span.desc {
+    background: #efe; }
+div.mark-descs span.desc span.desc {
+    background: #cdc; }
+div.mark-descs span.desc span.desc span.desc {
+    background: #aba; }
+div.mark-descs span.desc span.desc span.desc span.desc {
+    background: #898; }
+
+span.highlight-mention {
+    background: #00ff00 !important;
+    border: 2px solid #008000;
+    margin: -2px;
+}
+
+body.doc-context {
+    margin: 0; padding: 0; background: #ccc;
+    font-weight: bold;
+    text-align: center;
+}
+
+body.sent-context {
+    margin: 0; padding: 0; background: #ccc;
+    font-weight: bold;
+    text-align: center;
+}
+#prev-sent {
+    float: left;
+    display: block;
+    margin: 0 0.5em;
+}
+#next-sent {
+    float: right;
+    display: block;
+    margin: 0 0.5em;
+}
+
+span.docid {
+    font-style: italic;
+    font-family: monospace;
+}
+
+span.icews-actor span.label {
+    display: none;
+    white-space: nowrap;
+}
+
+div.mark-icews-actors span.icews-actor {
+    display: inline-block;
+    line-height: normal;
+    vertical-align: top;
+    padding: 0 4px;
+    margin: 0 0 0.5em 0;
+    white-space: nowrap;
+}
+
+div.mark-icews-actors span.icews-actor br {
+    display: none;
+}
+
+div.mark-icews-actors span.icews-actor span.icews-actor {
+    margin: 0;
+}
+
+div.mark-icews-actors span.icews-actor span.text {
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+div.mark-icews-actors span.icews-actor span.label {
+    display: block;
+    border-top: 1px solid black;
+    margin-top: 2px;
+    font-size: 70%; 
+    text-align: center;
+    white-space: nowrap;
+}
+
+
+/**********************************************************************
+ * Graphs
+ **********************************************************************/
+
+
+/*div.zoomable-graph svg {
+    max-width: 100%;
+}*/
+
+div.zoomable-graph {
+    background: white;
+}
+a.graph-zoom-out, a.graph-zoom-in {
+    font-weight: bold;
+}
+
+/**********************************************************************
+ * Sentence details
+ **********************************************************************/
+
+body.sentence-details { 
+    margin: 0; padding: 0; 
+}
+
+ul.nav-tabs {
+    display: block;
+    padding: 2px 0 0 0;
+    margin: 0;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    background: #777;
+}
+ul.nav-tabs li {
+    display: inline-block;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin: 0 0 0 0.5em;
+    padding: 0 0.5em 0 0.5em;
+    background: #99c;
+}
+ul.nav-tabs li.selected {
+    background: #ccf;
+}
+div.nav-panes div.nav-pane {
+    /*display: none;*/
+}
+div.nav-panes {
+    /*min-height: 5em;
+    background: white;*/
+    margin: 0 0.5em;
+}
+
+
+/**********************************************************************
+ * Entities
+ **********************************************************************/
+
+div.entity {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    margin: 0;
+    padding: 0 0.5em 0 0.5em;
+}
+div.even-entity {
+    background: #eee;
+}
+div.even-entity div.zoomable-graph {
+    background: #eee;
+}
+div.even-entity svg {
+    background: #eee;
+}
+div.last-entity {
+    border-bottom: 1px solid black;
+}
+div.entity h2 {
+    margin: 0; padding: 0;
+    font-size: 100%;
+}
+div.entity div.mention-info {
+    float: right;
+    margin-left: 1em;
+}
+div.collapsed-entity div.entity-mentions {
+    display: none;
+}
+
+div.entity-mentions {
+    padding: 0.5em 0;
+}
+
+table.entity-mentions {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table.entity-mentions td {
+    border: 1px solid black;
+    padding: 0 0.5em;
+}
+
+table.entity-mentions td.mention {
+    background: #c0c0ff;
+    font-weight: bold;
+}
+table.entity-mentions td.left, table.entity-mentions td.right {
+    background: #d0d0d0;
+    color: #777;
+}
+table.entity-mentions td.location {
+    background: white;
+}
+
+table.entity-mentions td.location {
+    white-space: nowrap;
+}
+table.entity-mentions td.left, table.entity-mentions td.right {
+    white-space: nowrap;
+    overflow: hidden; 
+}
+table.entity-mentions td.left { text-align: right; }
+table.entity-mentions td.mention { text-align: center; }
+table.entity-mentions td.right { text-align: left; }
+
+div.doc-entity-graph-wrapper a.show-entity-graph {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 0 0.5em 0;
+}
+div.doc-entity-graph-wrapper div.collapsed {
+    display: none;
+}
+div.doc-entity-graph {
+    margin: 0 0 0.5em 0;
+}
+div.doc-entity-graph svg {
+    border: 1px solid black;
+}
+
+div.entity-neighborhood {
+    overflow: auto;
+    /*max-height: 200px;*/
+}
+
+/**********************************************************************
+ * Prop Tree
+ **********************************************************************/
+
+div.propositions {
+}
+
+/**********************************************************************
+ * Syntax Tree
+ **********************************************************************/
+
+div.syntree {
+    position: relative;
+    /*overflow-x: auto;*/
+    margin: 0.5em;
+    white-space: nowrap;
+    /*height: 20em;*/
+    color: black;
+}
+
+div.syntree ul {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+
+div.syntree li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 0 6px;
+    padding: 0;
+    white-space: nowrap;
+}
+
+div.syntree li:first-child {
+    margin: 0;
+}
+
+div.syntree h3 {
+    text-align: center; 
+    border-bottom: 2px solid black;
+    padding: 0 1px;
+    margin: 0;
+    font: 70% Arial,Sans-serif;
+}
+
+div.syntree h3.head {
+    margin-top: -2px;
+    border-top: 2px dotted black;
+}
+div.syntree h3.preterminal {
+    border-bottom: 0px solid black; /*2px dotted black;*/
+}
+
+div.syntree h3                 { background: #eee; }
+
+div.syntree h3.syn-s           { background: #ffc; }
+div.syntree h3.syn-p           { background: #fcc; }
+div.syntree h3.syn-v           { background: #ff0; }
+div.syntree h3.syn-n           { background: #c0ffc0; }
+
+div.syntree li h3:hover        { background: #ddd; }
+
+/*
+div.syntree li h3.head:hover        { background: #aaa; }
+*/
+
+
+div.syntree h3 div.info {
+    font-weight: normal;
+    color: #080;
+}
+
+div.syntree div.word {
+    display: block;
+    text-align: center;
+    vertical-align: bottom;
+    padding: 0 1px;
+    border-color: #bbb;
+    border-top-style: solid;
+}
+
+
+
+
+
+/* TESTING: USE THESE TO "MINIMIZE" THE PARSE: */
+/*
+div.syntree h3 {
+    height: 1px;
+    color: transparent;
+    font-size: 2%;
+    border-bottom: 1px solid black;
+}
+div.syntree h3.head {
+    border-top: 1px dotted black;
+}
+div.syntree h3 div.info  {
+    color: transparent;
+}
+*/
+
+
+/**********************************************************************
+ * Searchers
+ **********************************************************************/
+
+body.doc-search {
+    background: #888;
+}
+
+body.doc-search div.match {
+    border: 1px solid black;
+    padding: 0 5px;
+    background: white;
+    margin-top: -1px;
+}
+body.doc-search div.even-match {
+    background: #eee;
+}
+body.doc-search span.sentence {
+    background: transparent;
+}
+
+body.doc-search div.selected-match {
+    background: #ffd;
+    border-left: 6px solid #ff0;
+    border-right: 6px solid #ff0;
+    margin-left: -6px;
+    margin-right: -6px;
+}
+body.doc-search div.selected-match span.selected-sentence {
+    border-width: 0px;
+}
+
+body.doc-search div.match-location {
+    font-size: 80%;
+    float: right;
+    margin: 0 -5px 0 5px;
+    padding: 0 5px;
+    background: #ccc;
+    line-height: normal;
+}
+
+body.doc-search div.context {
+    display: none; /* for now */
+}
+
+body.doc-search div.match span.highlight {
+    background: #f88;
+    font-weight: bold;
+    padding: 0 2px;
+}
+
+body.doc-search div.match span.highlight-arg {
+    background: #faa;
+    font-weight: bold;
+    padding: 0 2px;
+}
+
+body.doc-search div.match h3.highlight {
+    background: #f88 !important;
+}
+
+
+
+/*
+body.doc-search div.sentence {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin: 0.5em 0 0 0;
+    padding: 0;
+    background: white; color: black;
+    
+}
+body.doc-search div.sent-graph, 
+body.doc-search div.sent-text, 
+body.doc-search div.sent-parse, 
+body.doc-search div.sent-buttons {
+    padding: 0 0.5em;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    overflow-x: auto;
+}
+body.doc-search div.sent-text {
+    background: #ddd;
+    padding: 2px 0.5em;
+}
+body.doc-search div.sent-buttons {
+    background: #8bb;
+}
+body.doc-search div.sent-buttons input {
+    font-size: 80%;
+    width: 10em;
+}
+body.doc-search div.sent-graph, 
+body.doc-search div.sent-parse {
+    display: none;
+}
+body.doc-search div.sent-footer {
+    font-size: 80%;
+    text-align: right;
+}
+body.doc-search div.context {
+    color: #888;
+    display: none;
+}
+body.doc-search div.sent-context {
+    float: right;
+    font-size: 110%;
+    font-weight: bold;
+}
+*/
+body.doc-search div.searcher-info {
+    border: 2px solid black;
+    margin: 0.5em 0 1em 0;
+    background: #fbb;
+    line-height: normal;
+}
+body.doc-search div.searcher-info h3 {
+    padding: 0 0.5em;
+    background: #f88;
+    margin: 0;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+body.doc-search div.searcher-info div.info-body {
+    padding: 0 0.5em;
+    margin: 0;
+}

@@ -1,0 +1,29 @@
+class_loader_paths:
+  python:
+    - "/home/ubuntu/zs4ie/serif/model/impl/stanza_adapter2/a2t_compound_basic_nlp.py"
+  java: []
+models:
+  - model_name: "StanzaDriver"
+    kwargs:
+      lang: "en"
+      model_dir: "/home/ubuntu/stanza_resources"
+  - model_name: "StanzaAdapter"
+    kwargs:
+      lang: "en"
+      stage_to_add: "sentence_splitting, tokenization, parsing"
+  - model_name: "PronounMentionModel"
+    kwargs:
+      modify_existing_mention: True
+  - model_name: "StanzaAdapter"
+    kwargs:
+      lang: "en"
+      stage_to_add: "ner"
+  - model_name: "NounPhraseMentionModelNERDeduplication"
+    kwargs: {}
+  - model_name: "AllenNLPCoreferenceModel"
+    kwargs:
+      model: "/home/ubuntu/coref-spanbert-large-2021.03.10.tar.gz"
+  - model_name: "GenericEventDetector"
+    kwargs:
+      candidate_generation_method: "PARSE_TREE"
+      candidate_cannot_overlap_name_pron: True

@@ -1,0 +1,1038 @@
+{
+    "entity_mention": {
+        "input_constraints": [
+            {
+                "args": {
+                    "allowed_mention_types": [
+                        "name"
+                    ]
+                },
+                "name": "MentionTypeFilter"
+            }
+        ],
+        "ontology": {
+            "CITY": {
+                "templates": [
+                    "{X} is a city.",
+                    "{X} refers to a city."
+                ],
+                "use_global_input_constraints": true
+            },
+            "COUNTRY": {
+                "templates": [
+                    "{X} is a country.",
+                    "{X} refers to a country.",
+                    "{X} is the name of a country."
+                ],
+                "use_global_input_constraints": true
+            },
+            "DATE": {
+                "templates": [
+                    "{X} is a date.",
+                    "{X} is a time expression.",
+                    "{X} refers to a date.",
+                    "{X} refers to a time.",
+                    "{X} is a time.",
+                    "Something happened on {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "LOCATION": {
+                "templates": [
+                    "{X} is a location.",
+                    "{X} refers to a geo-political location."
+                ],
+                "use_global_input_constraints": true
+            },
+            "ORGANIZATION": {
+                "templates": [
+                    "{X} is a organization.",
+                    "{X} refers to a organization."
+                ],
+                "use_global_input_constraints": true
+            },
+            "PERSON": {
+                "templates": [
+                    "{X} refers to a person.",
+                    "{X} is a person."
+                ],
+                "use_global_input_constraints": true
+            }
+        }
+    },
+    "entity_mention_relation": {
+        "input_constraints": [
+            {
+                "args": {
+                    "allowed_model_names": [
+                        "Ask2Transformers"
+                    ]
+                },
+                "name": "PairMentionModelFilter"
+            }
+        ],
+        "ontology": {
+            "org:alternate_names": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "ORGANIZATION"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "MISC"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is also known as {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:city_of_headquarters": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "CITY"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "LOCATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} has its headquarters in {Y}",
+                    "{X} is located in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:country_of_headquarters": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "COUNTRY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} has its headquarters in {Y}",
+                    "{X} is located in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:dissolved": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "DATE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} existed until {Y}",
+                    "{X} disbanded in {Y}",
+                    "{X} dissolved in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:founded": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "DATE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} was founded in {Y}",
+                    "{X} was formed in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:founded_by": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "PERSON"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} was founded by {Y}",
+                    "{Y} founded {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:member_of": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "ORGANIZATION"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "COUNTRY"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "LOCATION"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "STATE_OR_PROVINCE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is member of {Y}",
+                    "{X} joined {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:members": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "ORGANIZATION"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "COUNTRY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} is member of {X}",
+                    "{Y} joined {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:number_of_employees/members": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "NUMBER"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} employs nearly {Y} people",
+                    "{X} has about {Y} employees"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:parents": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "ORGANIZATION"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "COUNTRY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is a subsidiary of {Y}",
+                    "{X} is a branch of {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:political/religious_affiliation": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "RELIGION"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "IDEOLOGY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} has political affiliation with {Y}",
+                    "{X} has religious affiliation with {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:shareholders": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "PERSON"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "ORGANIZATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} holds shares in {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:stateorprovince_of_headquarters": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "STATE_OR_PROVINCE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} has its headquarters in {Y}",
+                    "{X} is located in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:subsidiaries": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "ORGANIZATION"
+                                ],
+                                [
+                                    "ORGANIZATION",
+                                    "LOCATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} is a subsidiary of {X}",
+                    "{Y} is a branch of {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:top_members/employees": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "PERSON"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} is a high level member of {X}",
+                    "{Y} is chairman of {X}",
+                    "{Y} is president of {X}",
+                    "{Y} is director of {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "org:website": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "ORGANIZATION",
+                                    "URL"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} is the URL of {X}",
+                    "{Y} is the website of {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:age": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "NUMBER"
+                                ],
+                                [
+                                    "PERSON",
+                                    "DURATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is {Y} years old"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:alternate_names": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "PERSON"
+                                ],
+                                [
+                                    "PERSON",
+                                    "MISC"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is also known as {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:cause_of_death": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "CAUSE_OF_DEATH"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} is the cause of {X}’s death"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:charges": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "CRIMINAL_CHARGE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} was convicted of {Y}",
+                    "{Y} are the charges of {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:children": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "PERSON"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is the parent of {Y}",
+                    "{X} is the mother of {Y}",
+                    "{X} is the father of {Y}",
+                    "{Y} is the son of {X}",
+                    "{Y} is the daughter of {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:cities_of_residence": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "CITY"
+                                ],
+                                [
+                                    "PERSON",
+                                    "LOCATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} lives in {Y}",
+                    "{X} has a legal order to stay in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:city_of_birth": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "CITY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} was born in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:city_of_death": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "CITY"
+                                ],
+                                [
+                                    "PERSON",
+                                    "LOCATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} died in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:countries_of_residence": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "COUNTRY"
+                                ],
+                                [
+                                    "PERSON",
+                                    "NATIONALITY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} lives in {Y}",
+                    "{X} has a legal order to stay in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:country_of_birth": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "COUNTRY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} was born in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:country_of_death": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "COUNTRY"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} died in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:date_of_birth": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "DATE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X}'s birthday is on {Y}",
+                    "{X} was born in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:date_of_death": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "DATE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} died in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:employee_of": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "ORGANIZATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is member of {Y}",
+                    "{X} is an employee of {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:origin": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "NATIONALITY"
+                                ],
+                                [
+                                    "PERSON",
+                                    "COUNTRY"
+                                ],
+                                [
+                                    "PERSON",
+                                    "LOCATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} is the nationality of {X}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:other_family": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "PERSON"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} and {Y} are family",
+                    "{X} is a brother in law of {Y}",
+                    "{X} is a sister in law of {Y}",
+                    "{X} is the cousin of {Y}",
+                    "{X} is the uncle of {Y}",
+                    "{X} is the aunt of {Y}",
+                    "{X} is the grandparent of {Y}",
+                    "{X} is the grandmother of {Y}",
+                    "{X} is the grandson of {Y}",
+                    "{X} is the granddaughter of {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:parents": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "PERSON"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{Y} is the parent of {X}",
+                    "{Y} is the mother of {X}",
+                    "{Y} is the father of {X}",
+                    "{X} is the son of {Y}",
+                    "{X} is the daughter of {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:religion": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "RELIGION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} belongs to {Y} religion",
+                    "{Y} is the religion of {X}",
+                    "{X} believe in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:schools_attended": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "ORGANIZATION"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} studied in {Y}",
+                    "{X} graduated from {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:siblings": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "PERSON"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} and {Y} are siblings",
+                    "{X} is brother of {Y}",
+                    "{X} is sister of {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:spouse": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "PERSON"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is the spouse of {Y}",
+                    "{X} is the wife of {Y}",
+                    "{X} is the husband of {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:stateorprovince_of_birth": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "STATE_OR_PROVINCE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} was born in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:stateorprovince_of_death": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "STATE_OR_PROVICE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} died in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:stateorprovinces_of_residence": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "STATE_OR_PROVINCE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} lives in {Y}",
+                    "{X} has a legal order to stay in {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "per:title": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_mention_entity_type_pairs": [
+                                [
+                                    "PERSON",
+                                    "TITLE"
+                                ]
+                            ]
+                        },
+                        "name": "PairMentionEntityTypeMentionEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} is a {Y}"
+                ],
+                "use_global_input_constraints": true
+            },
+            "O": {
+                "templates": [
+                    "{X} is not relevant to {Y}"
+                ],
+                "use_global_input_constraints": true
+            }
+        }
+    },
+    "event_mention": {
+        "input_constraints": [],
+        "ontology": {
+            "Death": {
+                "templates": [
+                    "{X} refers to a human's death.",
+                    "{X} refers to a person's death."
+                ],
+                "use_global_input_constraints": true
+            },
+            "O": {
+                "templates": [
+                    "{X} is not an event."
+                ],
+                "use_global_input_constraints": true
+            }
+        }
+    },
+    "event_mention_argument": {
+        "input_constraints": [
+            {
+                "args": {
+                    "allowed_model_names": [
+                        "Ask2Transformers"
+                    ]
+                },
+                "name": "PairMentionModelFilter"
+            }
+        ],
+        "ontology": {
+            "location": {
+                "input_constraints": [
+                    {
+                        "args": {
+                            "allowed_event_type_entity_type_pairs": [
+                                [
+                                    "Death",
+                                    "LOCATION"
+                                ]
+                            ]
+                        },
+                        "name": "EventTypeArgEntityTypeFilter"
+                    }
+                ],
+                "templates": [
+                    "{X} happened at {Y}",
+                    "{X} happened in {Y}"
+                ],
+                "use_global_input_constraints": false
+            },
+            "O": {
+                "templates": [
+                    "{X} is not relevant to {Y}"
+                ],
+                "use_global_input_constraints": true
+            }
+        }
+    },
+    "stages_to_run": [
+        "event_mention_argument"
+    ]
+}
