@@ -1,5 +1,7 @@
 # ZS4IE: A Toolkit for Zero-Shot Information Extraction with Simple Verbalizations
 
+Please cite the following paper if you use ZS4IE in your research. Bibtex Citation coming soon.
+
 ## Prepare conda environment
 
 You'll need a Linux machine with CUDA enabled.
