@@ -1,6 +1,26 @@
 # ZS4IE: A Toolkit for Zero-Shot Information Extraction with Simple Verbalizations
 
-Please cite the following paper if you use ZS4IE in your research. Bibtex Citation coming soon.
+Please cite the following paper if you use ZS4IE in your research. 
+
+```bibtex
+@misc{https://doi.org/10.48550/arxiv.2203.13602,
+  doi = {10.48550/ARXIV.2203.13602},
+  
+  url = {https://arxiv.org/abs/2203.13602},
+  
+  author = {Sainz, Oscar and Qiu, Haoling and de Lacalle, Oier Lopez and Agirre, Eneko and Min, Bonan},
+  
+  keywords = {Computation and Language (cs.CL), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  
+  title = {ZS4IE: A toolkit for Zero-Shot Information Extraction with simple Verbalizations},
+  
+  publisher = {arXiv},
+  
+  year = {2022},
+  
+  copyright = {Creative Commons Attribution Share Alike 4.0 International}
+}
+```
 
 ## Prepare conda environment
 
